@@ -5,16 +5,18 @@
     android:layout_height="match_parent"
     android:background="?attr/colorSurface"
     android:padding="16dp"
-    android:fitsSystemWindows="true"> <ImageView
-    android:id="@+id/btnHistory"
-    android:layout_width="48dp"
-    android:layout_height="48dp"
-    android:src="@drawable/ic_history_clock"
-    app:tint="?attr/colorOnSurface"
-    android:padding="12dp"
-    android:background="?attr/selectableItemBackgroundBorderless"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+    android:fitsSystemWindows="true">
+
+    <ImageView
+        android:id="@+id/btnHistory"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_history_clock"
+        app:tint="?attr/colorOnSurface"
+        android:padding="12dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/btnMenu"
@@ -32,7 +34,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:gravity="bottom|end"
-        android:text=""
+        android:text="0"
         android:textColor="?attr/colorOnSurface"
         android:textSize="64sp"
         android:fontFamily="sans-serif-light"
@@ -88,41 +90,50 @@
         <Button android:id="@+id/btnLog" style="@style/Widget.Material3.Button.TonalButton" android:text="log" android:textSize="12sp" android:layout_columnWeight="1" android:layout_margin="4dp"/>
     </GridLayout>
 
-    <GridLayout
+    <LinearLayout
         android:id="@+id/numberPad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:columnCount="4"
-        android:rowCount="5"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <Button android:id="@+id/btnClear" style="@style/Widget.Material3.Button.TonalButton" android:text="AC" android:textColor="?attr/colorOnSecondaryContainer" app:backgroundTint="?attr/colorSecondaryContainer" android:layout_columnWeight="1" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="22sp"/>
-        <Button android:id="@+id/btnPara" style="@style/Widget.Material3.Button.TonalButton" android:text="( )" android:textColor="?attr/colorOnSecondaryContainer" app:backgroundTint="?attr/colorSecondaryContainer" android:layout_columnWeight="1" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="22sp"/>
-        <Button android:id="@+id/btnPercent" style="@style/Widget.Material3.Button.TonalButton" android:text="%" android:textColor="?attr/colorOnSecondaryContainer" app:backgroundTint="?attr/colorSecondaryContainer" android:layout_columnWeight="1" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="22sp"/>
-        <Button android:id="@+id/btnDiv" style="@style/Widget.Material3.Button.TonalButton" android:text="÷" android:textColor="?attr/colorOnTertiaryContainer" app:backgroundTint="?attr/colorTertiaryContainer" android:layout_columnWeight="1" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp"/>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <Button android:id="@+id/btnClear" style="@style/Widget.Material3.Button.TonalButton" android:text="AC" android:textColor="?attr/colorOnSecondaryContainer" app:backgroundTint="?attr/colorSecondaryContainer" android:layout_weight="1" android:layout_width="0dp" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="22sp" android:insetTop="0dp" android:insetBottom="0dp"/>
+            <Button android:id="@+id/btnPara" style="@style/Widget.Material3.Button.TonalButton" android:text="( )" android:textColor="?attr/colorOnSecondaryContainer" app:backgroundTint="?attr/colorSecondaryContainer" android:layout_weight="1" android:layout_width="0dp" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="22sp" android:insetTop="0dp" android:insetBottom="0dp"/>
+            <Button android:id="@+id/btnPercent" style="@style/Widget.Material3.Button.TonalButton" android:text="%" android:textColor="?attr/colorOnSecondaryContainer" app:backgroundTint="?attr/colorSecondaryContainer" android:layout_weight="1" android:layout_width="0dp" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="22sp" android:insetTop="0dp" android:insetBottom="0dp"/>
+            <Button android:id="@+id/btnDiv" style="@style/Widget.Material3.Button.TonalButton" android:text="÷" android:textColor="?attr/colorOnTertiaryContainer" app:backgroundTint="?attr/colorTertiaryContainer" android:layout_weight="1" android:layout_width="0dp" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp" android:insetTop="0dp" android:insetBottom="0dp"/>
+        </LinearLayout>
 
-        <Button android:id="@+id/btn7" style="@style/Widget.Material3.Button.TonalButton" android:text="7" android:layout_columnWeight="1" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp"/>
-        <Button android:id="@+id/btn8" style="@style/Widget.Material3.Button.TonalButton" android:text="8" android:layout_columnWeight="1" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp"/>
-        <Button android:id="@+id/btn9" style="@style/Widget.Material3.Button.TonalButton" android:text="9" android:layout_columnWeight="1" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp"/>
-        <Button android:id="@+id/btnMul" style="@style/Widget.Material3.Button.TonalButton" android:text="×" android:textColor="?attr/colorOnTertiaryContainer" app:backgroundTint="?attr/colorTertiaryContainer" android:layout_columnWeight="1" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp"/>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <Button android:id="@+id/btn7" style="@style/Widget.Material3.Button.TonalButton" android:text="7" android:textColor="?attr/colorOnSurface" app:backgroundTint="?attr/colorSurfaceContainerHigh" android:layout_weight="1" android:layout_width="0dp" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp" android:insetTop="0dp" android:insetBottom="0dp"/>
+            <Button android:id="@+id/btn8" style="@style/Widget.Material3.Button.TonalButton" android:text="8" android:textColor="?attr/colorOnSurface" app:backgroundTint="?attr/colorSurfaceContainerHigh" android:layout_weight="1" android:layout_width="0dp" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp" android:insetTop="0dp" android:insetBottom="0dp"/>
+            <Button android:id="@+id/btn9" style="@style/Widget.Material3.Button.TonalButton" android:text="9" android:textColor="?attr/colorOnSurface" app:backgroundTint="?attr/colorSurfaceContainerHigh" android:layout_weight="1" android:layout_width="0dp" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp" android:insetTop="0dp" android:insetBottom="0dp"/>
+            <Button android:id="@+id/btnMul" style="@style/Widget.Material3.Button.TonalButton" android:text="×" android:textColor="?attr/colorOnTertiaryContainer" app:backgroundTint="?attr/colorTertiaryContainer" android:layout_weight="1" android:layout_width="0dp" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp" android:insetTop="0dp" android:insetBottom="0dp"/>
+        </LinearLayout>
 
-        <Button android:id="@+id/btn4" style="@style/Widget.Material3.Button.TonalButton" android:text="4" android:layout_columnWeight="1" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp"/>
-        <Button android:id="@+id/btn5" style="@style/Widget.Material3.Button.TonalButton" android:text="5" android:layout_columnWeight="1" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp"/>
-        <Button android:id="@+id/btn6" style="@style/Widget.Material3.Button.TonalButton" android:text="6" android:layout_columnWeight="1" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp"/>
-        <Button android:id="@+id/btnSub" style="@style/Widget.Material3.Button.TonalButton" android:text="-" android:textColor="?attr/colorOnTertiaryContainer" app:backgroundTint="?attr/colorTertiaryContainer" android:layout_columnWeight="1" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp"/>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <Button android:id="@+id/btn4" style="@style/Widget.Material3.Button.TonalButton" android:text="4" android:textColor="?attr/colorOnSurface" app:backgroundTint="?attr/colorSurfaceContainerHigh" android:layout_weight="1" android:layout_width="0dp" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp" android:insetTop="0dp" android:insetBottom="0dp"/>
+            <Button android:id="@+id/btn5" style="@style/Widget.Material3.Button.TonalButton" android:text="5" android:textColor="?attr/colorOnSurface" app:backgroundTint="?attr/colorSurfaceContainerHigh" android:layout_weight="1" android:layout_width="0dp" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp" android:insetTop="0dp" android:insetBottom="0dp"/>
+            <Button android:id="@+id/btn6" style="@style/Widget.Material3.Button.TonalButton" android:text="6" android:textColor="?attr/colorOnSurface" app:backgroundTint="?attr/colorSurfaceContainerHigh" android:layout_weight="1" android:layout_width="0dp" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp" android:insetTop="0dp" android:insetBottom="0dp"/>
+            <Button android:id="@+id/btnSub" style="@style/Widget.Material3.Button.TonalButton" android:text="-" android:textColor="?attr/colorOnTertiaryContainer" app:backgroundTint="?attr/colorTertiaryContainer" android:layout_weight="1" android:layout_width="0dp" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp" android:insetTop="0dp" android:insetBottom="0dp"/>
+        </LinearLayout>
 
-        <Button android:id="@+id/btn1" style="@style/Widget.Material3.Button.TonalButton" android:text="1" android:layout_columnWeight="1" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp"/>
-        <Button android:id="@+id/btn2" style="@style/Widget.Material3.Button.TonalButton" android:text="2" android:layout_columnWeight="1" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp"/>
-        <Button android:id="@+id/btn3" style="@style/Widget.Material3.Button.TonalButton" android:text="3" android:layout_columnWeight="1" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp"/>
-        <Button android:id="@+id/btnAdd" style="@style/Widget.Material3.Button.TonalButton" android:text="+" android:textColor="?attr/colorOnTertiaryContainer" app:backgroundTint="?attr/colorTertiaryContainer" android:layout_columnWeight="1" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp"/>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <Button android:id="@+id/btn1" style="@style/Widget.Material3.Button.TonalButton" android:text="1" android:textColor="?attr/colorOnSurface" app:backgroundTint="?attr/colorSurfaceContainerHigh" android:layout_weight="1" android:layout_width="0dp" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp" android:insetTop="0dp" android:insetBottom="0dp"/>
+            <Button android:id="@+id/btn2" style="@style/Widget.Material3.Button.TonalButton" android:text="2" android:textColor="?attr/colorOnSurface" app:backgroundTint="?attr/colorSurfaceContainerHigh" android:layout_weight="1" android:layout_width="0dp" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp" android:insetTop="0dp" android:insetBottom="0dp"/>
+            <Button android:id="@+id/btn3" style="@style/Widget.Material3.Button.TonalButton" android:text="3" android:textColor="?attr/colorOnSurface" app:backgroundTint="?attr/colorSurfaceContainerHigh" android:layout_weight="1" android:layout_width="0dp" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp" android:insetTop="0dp" android:insetBottom="0dp"/>
+            <Button android:id="@+id/btnAdd" style="@style/Widget.Material3.Button.TonalButton" android:text="+" android:textColor="?attr/colorOnTertiaryContainer" app:backgroundTint="?attr/colorTertiaryContainer" android:layout_weight="1" android:layout_width="0dp" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp" android:insetTop="0dp" android:insetBottom="0dp"/>
+        </LinearLayout>
 
-        <Button android:id="@+id/btn0" style="@style/Widget.Material3.Button.TonalButton" android:text="0" android:layout_columnWeight="1" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp"/>
-        <Button android:id="@+id/btnDot" style="@style/Widget.Material3.Button.TonalButton" android:text="." android:layout_columnWeight="1" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp"/>
-        <Button android:id="@+id/btnBack" style="@style/Widget.Material3.Button.TonalButton" android:text="⌫" android:layout_columnWeight="1" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="22sp"/>
-        <Button android:id="@+id/btnEquals" style="@style/Widget.Material3.Button.UnelevatedButton" android:text="=" android:textColor="?attr/colorOnPrimary" app:backgroundTint="?attr/colorPrimary" android:layout_columnWeight="1" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp"/>
-    </GridLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <Button android:id="@+id/btn0" style="@style/Widget.Material3.Button.TonalButton" android:text="0" android:textColor="?attr/colorOnSurface" app:backgroundTint="?attr/colorSurfaceContainerHigh" android:layout_weight="1" android:layout_width="0dp" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp" android:insetTop="0dp" android:insetBottom="0dp"/>
+            <Button android:id="@+id/btnDot" style="@style/Widget.Material3.Button.TonalButton" android:text="." android:textColor="?attr/colorOnSurface" app:backgroundTint="?attr/colorSurfaceContainerHigh" android:layout_weight="1" android:layout_width="0dp" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp" android:insetTop="0dp" android:insetBottom="0dp"/>
+            <Button android:id="@+id/btnBack" style="@style/Widget.Material3.Button.TonalButton" android:text="⌫" android:textColor="?attr/colorOnSurface" app:backgroundTint="?attr/colorSurfaceContainerHigh" android:layout_weight="1" android:layout_width="0dp" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="22sp" android:insetTop="0dp" android:insetBottom="0dp"/>
+            <Button android:id="@+id/btnEquals" style="@style/Widget.Material3.Button.UnelevatedButton" android:text="=" android:textColor="?attr/colorOnPrimary" app:backgroundTint="?attr/colorPrimary" android:layout_weight="1" android:layout_width="0dp" android:layout_height="75dp" android:layout_margin="4dp" android:textSize="28sp" android:insetTop="0dp" android:insetBottom="0dp"/>
+        </LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/historyLayout"
