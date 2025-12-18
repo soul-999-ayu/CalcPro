@@ -146,7 +146,14 @@ class CalculatorActivity : AppCompatActivity() {
                 val result = eval(currentInput)
                 val df = DecimalFormat("#.##########")
                 val resultStr = df.format(result)
-                addToHistory("$currentInput = $resultStr")
+
+                // LOGIC UPDATE:
+                // Only save to history if the calculation actually changed the value.
+                // This prevents "1234 = 1234" from being saved.
+                if (currentInput != resultStr) {
+                    addToHistory("$currentInput = $resultStr")
+                }
+
                 tvDisplay.text = resultStr
                 currentInput = resultStr
             } catch (e: Exception) {
