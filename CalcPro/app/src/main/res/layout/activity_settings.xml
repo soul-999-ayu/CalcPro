@@ -5,7 +5,8 @@
     android:orientation="vertical"
     android:padding="24dp"
     android:gravity="center_horizontal"
-    android:background="?attr/colorSurface"> <TextView
+    android:background="?attr/colorSurface"
+    android:fitsSystemWindows="true"> <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="Security"
@@ -41,7 +42,10 @@
         android:text="Update Password"
         android:layout_marginTop="24dp"/>
 
-    <View android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
     <TextView
         android:id="@+id/tvCredits"
@@ -50,5 +54,5 @@
         android:text="Made with ❤️ by Ayu Kashyap"
         android:textColor="?attr/colorPrimary"
         android:textSize="16sp"
-        android:padding="16dp"/>
-</LinearLayout>
+        android:padding="16dp"
+        android:layout_marginBottom="16dp"/> </LinearLayout>

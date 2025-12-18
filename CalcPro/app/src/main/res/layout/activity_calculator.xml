@@ -37,18 +37,20 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.8"> <TextView
-        android:id="@+id/tvDisplay"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="bottom|end"
-        android:text="0"
-        android:textColor="?attr/colorOnSurface"
-        android:textSize="64sp"
-        android:fontFamily="sans-serif-light"
-        android:maxLines="2"
-        android:scrollbars="vertical"
-        android:padding="24dp"/>
+        android:layout_weight="0.8">
+
+        <TextView
+            android:id="@+id/tvDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom|end"
+            android:text="0"
+            android:textColor="?attr/colorOnSurface"
+            android:textSize="64sp"
+            android:fontFamily="sans-serif-light"
+            android:maxLines="2"
+            android:scrollbars="vertical"
+            android:padding="24dp"/>
 
         <LinearLayout
             android:id="@+id/historyLayout"
@@ -104,18 +106,89 @@
         android:visibility="gone"
         android:padding="8dp">
 
-        <Button android:id="@+id/btnRoot" style="@style/Widget.Material3.Button.TonalButton" android:text="√" android:layout_columnWeight="1" android:layout_margin="4dp"/>
-        <Button android:id="@+id/btnPi" style="@style/Widget.Material3.Button.TonalButton" android:text="π" android:layout_columnWeight="1" android:layout_margin="4dp"/>
-        <Button android:id="@+id/btnPower" style="@style/Widget.Material3.Button.TonalButton" android:text="^" android:layout_columnWeight="1" android:layout_margin="4dp"/>
-        <Button android:id="@+id/btnFact" style="@style/Widget.Material3.Button.TonalButton" android:text="!" android:layout_columnWeight="1" android:layout_margin="4dp"/>
-        <Button android:id="@+id/btnRad" style="@style/Widget.Material3.Button.TonalButton" android:text="Rad" android:textSize="12sp" android:layout_columnWeight="1" android:layout_margin="4dp"/>
-        <Button android:id="@+id/btnSin" style="@style/Widget.Material3.Button.TonalButton" android:text="sin" android:textSize="12sp" android:layout_columnWeight="1" android:layout_margin="4dp"/>
-        <Button android:id="@+id/btnCos" style="@style/Widget.Material3.Button.TonalButton" android:text="cos" android:textSize="12sp" android:layout_columnWeight="1" android:layout_margin="4dp"/>
-        <Button android:id="@+id/btnTan" style="@style/Widget.Material3.Button.TonalButton" android:text="tan" android:textSize="12sp" android:layout_columnWeight="1" android:layout_margin="4dp"/>
-        <Button android:id="@+id/btnInv" style="@style/Widget.Material3.Button.TonalButton" android:text="INV" android:textSize="12sp" android:layout_columnWeight="1" android:layout_margin="4dp"/>
-        <Button android:id="@+id/btnE" style="@style/Widget.Material3.Button.TonalButton" android:text="e" android:layout_columnWeight="1" android:layout_margin="4dp"/>
-        <Button android:id="@+id/btnLn" style="@style/Widget.Material3.Button.TonalButton" android:text="ln" android:textSize="12sp" android:layout_columnWeight="1" android:layout_margin="4dp"/>
-        <Button android:id="@+id/btnLog" style="@style/Widget.Material3.Button.TonalButton" android:text="log" android:textSize="12sp" android:layout_columnWeight="1" android:layout_margin="4dp"/>
+        <Button android:id="@+id/btnRoot"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:text="√"
+            android:layout_width="0dp" android:layout_height="wrap_content" android:layout_gravity="fill"
+            android:minHeight="0dp" android:minWidth="0dp" android:padding="4dp" android:includeFontPadding="false"
+            android:layout_columnWeight="1" android:layout_margin="4dp"/>
+
+        <Button android:id="@+id/btnPi"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:text="π"
+            android:layout_width="0dp" android:layout_height="wrap_content" android:layout_gravity="fill"
+            android:minHeight="0dp" android:minWidth="0dp" android:padding="4dp" android:includeFontPadding="false"
+            android:layout_columnWeight="1" android:layout_margin="4dp"/>
+
+        <Button android:id="@+id/btnPower"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:text="^"
+            android:layout_width="0dp" android:layout_height="wrap_content" android:layout_gravity="fill"
+            android:minHeight="0dp" android:minWidth="0dp" android:padding="4dp" android:includeFontPadding="false"
+            android:layout_columnWeight="1" android:layout_margin="4dp"/>
+
+        <Button android:id="@+id/btnFact"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:text="!"
+            android:layout_width="0dp" android:layout_height="wrap_content" android:layout_gravity="fill"
+            android:minHeight="0dp" android:minWidth="0dp" android:padding="4dp" android:includeFontPadding="false"
+            android:layout_columnWeight="1" android:layout_margin="4dp"/>
+
+        <Button android:id="@+id/btnRad"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:text="Rad" android:textSize="12sp"
+            android:layout_width="0dp" android:layout_height="wrap_content" android:layout_gravity="fill"
+            android:minHeight="0dp" android:minWidth="0dp" android:padding="4dp" android:includeFontPadding="false"
+            android:layout_columnWeight="1" android:layout_margin="4dp"/>
+
+        <Button android:id="@+id/btnSin"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:text="sin" android:textSize="12sp"
+            android:layout_width="0dp" android:layout_height="wrap_content" android:layout_gravity="fill"
+            android:minHeight="0dp" android:minWidth="0dp" android:padding="4dp" android:includeFontPadding="false"
+            android:layout_columnWeight="1" android:layout_margin="4dp"/>
+
+        <Button android:id="@+id/btnCos"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:text="cos" android:textSize="12sp"
+            android:layout_width="0dp" android:layout_height="wrap_content" android:layout_gravity="fill"
+            android:minHeight="0dp" android:minWidth="0dp" android:padding="4dp" android:includeFontPadding="false"
+            android:layout_columnWeight="1" android:layout_margin="4dp"/>
+
+        <Button android:id="@+id/btnTan"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:text="tan" android:textSize="12sp"
+            android:layout_width="0dp" android:layout_height="wrap_content" android:layout_gravity="fill"
+            android:minHeight="0dp" android:minWidth="0dp" android:padding="4dp" android:includeFontPadding="false"
+            android:layout_columnWeight="1" android:layout_margin="4dp"/>
+
+        <Button android:id="@+id/btnInv"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:text="INV" android:textSize="12sp"
+            android:layout_width="0dp" android:layout_height="wrap_content" android:layout_gravity="fill"
+            android:minHeight="0dp" android:minWidth="0dp" android:padding="4dp" android:includeFontPadding="false"
+            android:layout_columnWeight="1" android:layout_margin="4dp"/>
+
+        <Button android:id="@+id/btnE"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:text="e"
+            android:layout_width="0dp" android:layout_height="wrap_content" android:layout_gravity="fill"
+            android:minHeight="0dp" android:minWidth="0dp" android:padding="4dp" android:includeFontPadding="false"
+            android:layout_columnWeight="1" android:layout_margin="4dp"/>
+
+        <Button android:id="@+id/btnLn"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:text="ln" android:textSize="12sp"
+            android:layout_width="0dp" android:layout_height="wrap_content" android:layout_gravity="fill"
+            android:minHeight="0dp" android:minWidth="0dp" android:padding="4dp" android:includeFontPadding="false"
+            android:layout_columnWeight="1" android:layout_margin="4dp"/>
+
+        <Button android:id="@+id/btnLog"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:text="log" android:textSize="12sp"
+            android:layout_width="0dp" android:layout_height="wrap_content" android:layout_gravity="fill"
+            android:minHeight="0dp" android:minWidth="0dp" android:padding="4dp" android:includeFontPadding="false"
+            android:layout_columnWeight="1" android:layout_margin="4dp"/>
     </GridLayout>
 
     <LinearLayout
