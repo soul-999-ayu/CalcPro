@@ -22,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import coil.load
+import com.github.chrisbanes.photoview.PhotoView // IMPORT ADDED
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
@@ -193,7 +194,7 @@ class GalleryPagerAdapter(
 ) : RecyclerView.Adapter<GalleryPagerAdapter.PagerVH>() {
 
     class PagerVH(view: View) : RecyclerView.ViewHolder(view) {
-        val img: ZoomImageView = view.findViewById(R.id.imgFull)
+        val img: PhotoView = view.findViewById(R.id.imgFull) // CHANGED: Now PhotoView
         val playIcon: ImageView = view.findViewById(R.id.iconPlay)
         val videoView: VideoView = view.findViewById(R.id.videoView)
         val controls: LinearLayout = view.findViewById(R.id.videoControls)
@@ -221,18 +222,25 @@ class GalleryPagerAdapter(
         onUIToggle(true)
 
         holder.img.setOnClickListener(null)
+        holder.img.setOnPhotoTapListener(null) // Clear previous listeners
         holder.touchOverlay.setOnClickListener(null)
 
         if (isVideo) {
-            holder.img.isZoomEnabled = false
+            holder.img.setZoomable(false) // CHANGED: Disable zoom for video thumbs
             holder.img.load(item.thumbFile)
             val startListener = View.OnClickListener { startVideo(holder, item) }
             holder.img.setOnClickListener(startListener)
             holder.playIcon.setOnClickListener(startListener)
         } else {
-            holder.img.isZoomEnabled = true
+            holder.img.setZoomable(true) // CHANGED: Enable zoom for images
             val decrypted = VaultManager.getDecryptedFile(context, item.encryptedFile)
             holder.img.load(decrypted ?: item.thumbFile)
+
+            // Optional: Toggle UI if image is tapped (PhotoView consumes standard clicks)
+            holder.img.setOnPhotoTapListener { _, _, _ ->
+                // You can add logic here if you want to toggle the bottom bar on tap
+                // For now, leaving empty to match standard behavior or can call logic if needed
+            }
         }
     }
 

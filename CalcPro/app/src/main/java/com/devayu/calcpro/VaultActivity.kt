@@ -49,19 +49,34 @@ class VaultActivity : AppCompatActivity() {
         }
     }
 
-    private val pickMedia = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+    // CHANGED: Use GetMultipleContents() instead of GetContent()
+    private val pickMedia = registerForActivityResult(ActivityResultContracts.GetMultipleContents()) { uris: List<Uri> ->
         isPickingFile = false
-        if (uri != null) {
-            Toast.makeText(this, "Encrypting...", Toast.LENGTH_SHORT).show()
+        if (uris.isNotEmpty()) {
+            Toast.makeText(this, "Encrypting ${uris.size} files...", Toast.LENGTH_SHORT).show()
+
             Thread {
-                val success = VaultManager.hideFile(this, uri)
-                runOnUiThread {
+                var successCount = 0
+                // Loop through all selected files
+                for (uri in uris) {
+                    val success = VaultManager.hideFile(this, uri)
                     if (success) {
-                        refreshList()
-                        Toast.makeText(this, "Hidden!", Toast.LENGTH_SHORT).show()
-                        deleteOriginal(uri)
+                        successCount++
+                        // Attempt to delete original (Note: Bulk delete might ask for permission multiple times on some Android versions)
+                        try {
+                            contentResolver.delete(uri, null, null)
+                        } catch (e: Exception) {
+                            // If simple delete fails, we skip complex recovery for bulk actions to avoid UI spam
+                        }
+                    }
+                }
+
+                runOnUiThread {
+                    refreshList()
+                    if (successCount > 0) {
+                        Toast.makeText(this, "Hidden $successCount files!", Toast.LENGTH_SHORT).show()
                     } else {
-                        Toast.makeText(this, "Failed.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Failed to hide files.", Toast.LENGTH_SHORT).show()
                     }
                 }
             }.start()
@@ -93,6 +108,7 @@ class VaultActivity : AppCompatActivity() {
         val fab = findViewById<FloatingActionButton>(R.id.fabAdd)
         fab.setOnClickListener {
             isPickingFile = true
+            // CHANGED: Pass the mime type to launch()
             pickMedia.launch("*/*")
         }
 

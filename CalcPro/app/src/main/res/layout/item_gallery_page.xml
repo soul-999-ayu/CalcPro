@@ -5,11 +5,10 @@
     android:layout_height="match_parent"
     android:background="#000000">
 
-    <com.devayu.calcpro.ZoomImageView
+    <com.github.chrisbanes.photoview.PhotoView
         android:id="@+id/imgFull"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitCenter" />
+        android:layout_height="match_parent" />
 
     <VideoView
         android:id="@+id/videoView"
